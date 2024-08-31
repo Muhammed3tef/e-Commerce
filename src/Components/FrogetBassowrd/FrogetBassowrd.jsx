@@ -19,14 +19,13 @@ export default function rePassowrd() {
     setisLoading(true);
     axios.post(`https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords`, values)
     .then((res) => {
-      // console.log(res.data.message)
       setisLoading(false)
       // setApiError(res.data.message)
       toast.success(res.data.message)
       navigate("/")
     })
     .catch((res) => {
-      console.log(res)
+      
       setisLoading(false)
       
     })

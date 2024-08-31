@@ -8,9 +8,8 @@ import toast from "react-hot-toast";
 import { CartContext } from "../../Context/CartContext";
 
 export default function Products() {
-  // const [Products, setProducts] = useState([]);
   let { data, isError, error, isLoading } = useProducts();
-  let { addProductToCard } = useContext(CartContext);
+  let { addProductToCard , setnumberItems, numberItems } = useContext(CartContext);
   const [loading, setloading] = useState(false);
   const [currentId, setcurrentId] = useState(0);
   async function addToCart(id) {
@@ -19,6 +18,7 @@ export default function Products() {
     let response = await addProductToCard(id);
 
     if (response.data.status == "success") {
+      setnumberItems(numberItems + 1);
       setloading(false);
       toast.success(response.data.message);
     } else {
@@ -34,22 +34,6 @@ export default function Products() {
   if (isLoading) {
     return <span className="loader top-[50%]"></span>;
   }
-
-  // function getProducts() {
-  //   axios
-  //     .get(`https://ecommerce.routemisr.com/api/v1/products`)
-  //     .then((res) => {
-  //       setProducts(res.data.data);
-  //     })
-  //     .catch((res) => {
-  //       console.log(res);
-  //     });
-  // }
-
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
-
   return (
     <>
       <div className="row">

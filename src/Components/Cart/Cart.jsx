@@ -14,7 +14,6 @@ export default function Cart() {
     numberItems,
   } = useContext(CartContext);
   const [CartDetalis, setCartDetalis] = useState(null);
-  // const [secoondId, setsecoondId] = useState(null)
 
   async function getCartItems() {
     let response = await getLoggedUserCart();
@@ -163,12 +162,6 @@ export default function Cart() {
                       {product.price} LE
                     </td>
                     <td className="px-6 py-4">
-                      {/* <span
-                        onClick={() => deleteItem(product.product.id)}
-                        className="font-medium text-red-600 dark:text-red-500 hover:underline cursor-pointer"
-                      >
-                        Remove
-                      </span> */}
                   <button className="bin-button" onClick={() => deleteItem(product.product.id)}>
                     <svg
                       className="bin-top"

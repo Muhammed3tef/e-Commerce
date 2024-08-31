@@ -9,7 +9,6 @@ import { CartContext } from "../../Context/CartContext";
 import toast from "react-hot-toast";
 
 export default function RecentProducts() {
-  // const [Products, setProducts] = useState([]);
 
   let { data, isError, error, isLoading } = useProducts();
   let { addProductToCard, setnumberItems, numberItems } =
@@ -39,20 +38,7 @@ export default function RecentProducts() {
     return <span className="loader top-[120%] "></span>;
   }
 
-  // function getProducts() {
-  //   axios
-  //     .get(`https://ecommerce.routemisr.com/api/v1/products`)
-  //     .then((res) => {
-  //       setProducts(res.data.data);
-  //     })
-  //     .catch((res) => {
-  //       console.log(res);
-  //     });
-  // }
 
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
 
   return (
     <>

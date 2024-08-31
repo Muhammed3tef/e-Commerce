@@ -42,7 +42,6 @@ export default function CartContextProvider(props) {
     return axios
       .get(`https://ecommerce.routemisr.com/api/v1/cart`, { headers })
       .then((res) => {
-        // console.log(res.data.data._id);
         setcartId(res.data.data._id)
           
           setnumberItems(res.data.numOfCartItems)
