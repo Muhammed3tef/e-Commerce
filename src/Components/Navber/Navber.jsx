@@ -4,7 +4,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/freshcart-logo.svg";
 import { UserContext } from "../../Context/UserContext";
 import { CartContext } from "../../Context/CartContext";
-import { Navbar } from "flowbite-react";
+// import { Navbar } from "flowbite-react";
 
 export default function Navber() {
   const { numberItems } = useContext(CartContext);
