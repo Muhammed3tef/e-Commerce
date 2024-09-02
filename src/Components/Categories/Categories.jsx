@@ -45,7 +45,7 @@ export default function Categories() {
       ) : (
         <i className="loader md:mt-72 mt-60"></i>
       )}
-      <Footer />
+      {allCategories.length > 0 ? <Footer />:null}
     </>
   );
 }

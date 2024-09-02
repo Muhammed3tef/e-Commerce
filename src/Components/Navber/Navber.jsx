@@ -297,16 +297,16 @@ export default function Navber() {
                     <div className="icons flex my-3 md:my-[-5px] gap-3 justify-center">
                       <Link to={`/cart`}>
                         <i className="fa-solid fa-cart-shopping hover:text-emerald-500 transition-all relative cursor-pointer">
-                          <span className="absolute top-[-15px] right-[-12px] text-white size-5 bg-red-600 rounded-full flex items-center justify-center text-[12px]">
+                    {numberItems > 0 ?       <span className="absolute top-[-15px] right-[-12px] text-white size-5 bg-red-600 rounded-full flex items-center justify-center text-[12px]">
                             {numberItems}
-                          </span>
+                          </span>:null}
                         </i>
                       </Link>
                       <Link to={`/wishlist`}>
                         <i className="fa-solid fa-heart text-black hover:text-red-600 cursor-pointer relative transition-all">
-                          <span className="absolute top-[-15px] right-[-12px] text-white size-5 bg-red-600 rounded-full flex items-center justify-center text-[12px]">
+                          {count > 0? <span className="absolute top-[-15px] right-[-12px] text-white size-5 bg-red-600 rounded-full flex items-center justify-center text-[12px]">
                             {count}
-                          </span>
+                          </span>:null}
                         </i>
                       </Link>
                       <i className="fab fa-facebook text-black hover:text-blue-600 cursor-pointer transition-all"></i>

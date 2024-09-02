@@ -29,6 +29,6 @@ export default function Brands() {
           </div>
         ))}
       </div> : <i className='loader md:mt-72 mt-60'></i>}
-        <Footer />
+        {allBrands.length > 0 ? <Footer /> : null}
   </>
 }
