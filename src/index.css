@@ -12,6 +12,16 @@ nav{
 .btn{
   @apply text-white bg-emerald-600 px-4 py-2 rounded-lg w-full
 }
+.active{
+  border-bottom: 2px solid green !important;
+  transition: border-bottom .1s;
+  -webkit-transition: border-bottom .1s;
+  -moz-transition: border-bottom .1s;
+  -ms-transition: border-bottom .1s;
+  -o-transition: border-bottom .1s;
+
+}
+
 .loader {
   color: green;
   font-size: 45px;
@@ -80,35 +90,8 @@ nav{
 
 body{
     font-family: var(--font-family) !important;
-    /* light mode */
-    /* --color : rgb(0, 0, 0);
-    --background-color : rgb(250,250,250);
-
-    color : var(--color);
-    background-color: var(--background-color); */
 }
 
-/* dark mode */
-/* body.dark-mode{
-  --color : rgb(250,250,250);
-  --background-color : #021526;
-  
-} */
-
-.app:hover{
-  transform: rotate(5deg);
-  -webkit-transform: rotate(5deg);
-  -moz-transform: rotate(5deg);
-  -ms-transform: rotate(5deg);
-  -o-transform: rotate(5deg);
-}
-.app{
-  transition: .3s;
-  -webkit-transition: .3s;
-  -moz-transition: .3s;
-  -ms-transition: .3s;
-  -o-transition: .3s;
-}
 
 
 
@@ -408,7 +391,7 @@ a , a:hover{
   }
 }
 
-/* Another Error Screen to Use 
+/* Another Error Screen to Use  */
 
 .screen {
   width: 13em;
@@ -445,7 +428,7 @@ a , a:hover{
   background: linear-gradient(to right, #006c6b 0%, #005857 16.6666666667%, white 16.6666666667%, #fafafa 33.3333333333%, #001b75 33.3333333333%, #001761 50%, #6c6c6c 50%, #626262 66.6666666667%, #929292 66.6666666667%, #888888 83.3333333333%, #3a3a3a 83.3333333333%, #303030 100%);
 }
 
-  */
+  
 
 .lines {
   display: flex;
@@ -798,4 +781,109 @@ a , a:hover{
 .bin-button:active {
   transform: scale(0.9);
 }
-/* checkout */
+/* haert */
+/* From Uiverse.io by andrew-demchenk0 */ 
+.container2 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container2 {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.container2 svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 30px;
+  transition: all 0.3s;
+  fill: #666;
+  opacity: 0;
+}
+.product:hover svg{
+  opacity: 1;
+}
+
+.container2 svg:hover {
+  transform: scale(1.1);
+}
+
+
+.container2 input:checked ~ svg {
+  fill: #E3474F;
+}
+/* delete from wishlist */
+/* From Uiverse.io by vinodjangid07 */ 
+.deleteButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.deleteButton svg {
+  width: 40%;
+}
+.deleteButton:hover {
+  background-color: rgb(237, 56, 56);
+  overflow: visible;
+}
+.bin path {
+  transition: all 0.2s;
+}
+.deleteButton:hover .bin path {
+  fill: #fff;
+}
+.deleteButton:active {
+  transform: scale(0.98);
+}
+.tooltip {
+  --tooltip-color: rgb(41, 41, 41);
+  position: absolute;
+  top: -40px;
+  background-color: var(--tooltip-color);
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 8px 12px;
+  font-weight: 600;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.105);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.tooltip::before {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  content: "";
+  background-color: var(--tooltip-color);
+  bottom: -10%;
+}
+.deleteButton:hover .tooltip {
+  opacity: 1;
+}
+
+
+

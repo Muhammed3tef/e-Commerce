@@ -5,9 +5,11 @@ import logo from "../../assets/freshcart-logo.svg";
 import { UserContext } from "../../Context/UserContext";
 import { CartContext } from "../../Context/CartContext";
 import { Button, Navbar } from "flowbite-react";
+import { WishListContext } from "../../Context/WishListContext";
 
 export default function Navber() {
   const { numberItems } = useContext(CartContext);
+  const { count } = useContext(WishListContext);
   const { userLogin, setuserLogin } = useContext(UserContext);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const navigate = useNavigate();
@@ -158,11 +160,18 @@ export default function Navber() {
         </div>
       </nav> */}
 
-
-<nav class="border-gray-200 px-6 bg-slate-300 fixed left-0 right-0 top-0">
-<div className="max-w-screen-xl flex flex-wrap items-center md:justify-normal justify-between p-2 mx-auto py-3">
-          <Link to="" className="flex items-center pb-1 space-x-3 rtl:space-x-reverse">
-            <img src={logo} width={"110px"} className="h-8 me-3" alt="Flowbite Logo" />
+      <nav className="border-gray-200 px-6 bg-slate-300 fixed left-0 right-0 top-0">
+        <div className="max-w-screen-xl flex flex-wrap items-center md:justify-normal justify-between p-2 mx-auto py-3">
+          <Link
+            to=""
+            className="flex items-center pb-1 space-x-3 rtl:space-x-reverse"
+          >
+            <img
+              src={logo}
+              width={"110px"}
+              className="h-8 me-3"
+              alt="Flowbite Logo"
+            />
           </Link>
           <button
             onClick={toggleNav}
@@ -173,8 +182,19 @@ export default function Navber() {
             aria-expanded={isNavOpen}
           >
             <span className="sr-only">Open main menu</span>
-            <svg className="w-5 h-5" aria-hidden="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M1 1h15M1 7h15M1 13h15" />
+            <svg
+              className="w-5 h-5"
+              aria-hidden="false"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
             </svg>
           </button>
           <div
@@ -187,27 +207,42 @@ export default function Navber() {
               {userLogin != null ? (
                 <>
                   <li>
-                    <NavLink to="" className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">
+                    <NavLink
+                      to=""
+                      className="block py-2 px-3 text-black rounded   md:border-0 md:p-0 "
+                    >
                       <i className="fas fa-home text-emerald-600"></i> Home
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="cart" className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">
+                    <NavLink
+                      to="cart"
+                      className="block py-2 px-3 text-black rounded   md:border-0 md:p-0 "
+                    >
                       Cart
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="products" className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">
+                    <NavLink
+                      to="products"
+                      className="block py-2 px-3 text-black rounded   md:border-0 md:p-0 "
+                    >
                       Products
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="categories" className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">
+                    <NavLink
+                      to="categories"
+                      className="block py-2 px-3 text-black rounded   md:border-0 md:p-0 "
+                    >
                       Categories
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="brands" className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">
+                    <NavLink
+                      to="brands"
+                      className=" block py-2 px-3 text-black rounded   md:border-0 md:p-0 "
+                    >
                       Brands
                     </NavLink>
                   </li>
@@ -226,6 +261,7 @@ export default function Navber() {
                               </span>
                             </i>
                           </Link>
+                          <i className="fa-solid fa-heart"></i>
                           <i className="fab fa-facebook text-black"></i>
                           <i className="fab fa-linkedin text-black"></i>
                           <i className="fab fa-youtube text-black"></i>
@@ -236,12 +272,15 @@ export default function Navber() {
                     ) : null}
                     <div className="links flex gap-3">
                       {userLogin != null ? (
-                        <span onClick={signout} className="text-sm cursor-pointer btn">
+                        <span
+                          onClick={signout}
+                          className="text-sm cursor-pointer btn"
+                        >
                           SignOut
                         </span>
                       ) : (
                         <>
-                          <NavLink to="login" className="text-sm btn">
+                          <NavLink to="login" className=" text-sm btn" >
                             Login
                           </NavLink>
                           <NavLink to="register" className="text-sm btn">
@@ -263,6 +302,13 @@ export default function Navber() {
                           </span>
                         </i>
                       </Link>
+                      <Link to={`/wishlist`}>
+                        <i className="fa-solid fa-heart text-black hover:text-red-600 cursor-pointer relative transition-all">
+                          <span className="absolute top-[-15px] right-[-12px] text-white size-5 bg-red-600 rounded-full flex items-center justify-center text-[12px]">
+                            {count}
+                          </span>
+                        </i>
+                      </Link>
                       <i className="fab fa-facebook text-black hover:text-blue-600 cursor-pointer transition-all"></i>
                       <i className="fab fa-linkedin text-black hover:text-blue-600 cursor-pointer transition-all"></i>
                       <i className="fab fa-youtube text-black hover:text-red-600 cursor-pointer transition-all"></i>
@@ -271,7 +317,10 @@ export default function Navber() {
                     </div>
                     <div className="links flex gap-3">
                       {userLogin != null ? (
-                        <span onClick={signout} className="text-sm cursor-pointer btn">
+                        <span
+                          onClick={signout}
+                          className="text-sm cursor-pointer btn"
+                        >
                           SignOut
                         </span>
                       ) : (
@@ -291,8 +340,7 @@ export default function Navber() {
             </ul>
           </div>
         </div>
-</nav>
-
+      </nav>
     </>
   );
 }

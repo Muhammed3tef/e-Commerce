@@ -13,6 +13,6 @@ export default function Home() {
   <MainSlider />
   <CategoriesSlider />
   <RecentProducts />
-  
+  <Footer />
   </>
 }

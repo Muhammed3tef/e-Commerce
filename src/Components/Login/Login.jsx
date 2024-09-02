@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { UserContext } from "../../Context/UserContext";
-
+import Footer from "../Footer/Footer"
 
 
 
@@ -139,10 +139,11 @@ export default function Login() {
                 Forget Password ?
               </Link>{" "}
             </span>
-         
+       
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

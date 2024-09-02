@@ -57,6 +57,7 @@ export default function Cart() {
 
   useEffect(() => {
     getCartItems();
+    document.title = "Cart"
   }, []);
   return (
     <>
@@ -222,7 +223,9 @@ export default function Cart() {
         </>
       ) : (
         <i className="loader top-[50%]"></i>
+        
       )}
+      
     </>
   );
 }

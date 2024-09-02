@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
@@ -20,9 +19,9 @@ import CartContextProvider from "./Context/CartContext";
 import { Toaster } from "react-hot-toast";
 import Checkout from "./Components/Checkout/Checkout";
 import Allorders from "./Components/Allorders/Allorders";
-import ForgetBassowrd from "./Components/FrogetBassowrd/FrogetBassowrd"
-import useDarkMode from "./Hooks/useDarkMode";
-
+import ForgetBassowrd from "./Components/FrogetBassowrd/FrogetBassowrd";
+import WishListContextProvider from "./Context/WishListContext";
+import WishList from "./Components/WishList/WishList"
 
 let query = new QueryClient();
 
@@ -82,7 +81,7 @@ let router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
- 
+
       {
         path: "checkout",
         element: (
@@ -99,27 +98,44 @@ let router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+        path: "wishlist",
+        element: (
+          <ProtectedRoute>
+            <WishList />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "wishlist/productdetails/:id/:category",
+        element: (
+          <ProtectedRoute>
+            <ProductDetails />
+          </ProtectedRoute>
+        ),
+      },
+
       { path: "*", element: <Notfound /> },
     ],
   },
 ]);
 
 function App() {
-
   return (
     <>
       <UserContextProvider>
         <CounterContextProvider>
           <QueryClientProvider client={query}>
             <CartContextProvider>
-              <RouterProvider router={router}></RouterProvider>
-              <Toaster />
+              <WishListContextProvider>
+                <RouterProvider router={router}></RouterProvider>
+                <Toaster />
+              </WishListContextProvider>
             </CartContextProvider>
             <ReactQueryDevtools />
           </QueryClientProvider>
         </CounterContextProvider>
       </UserContextProvider>
-
     </>
   );
 }

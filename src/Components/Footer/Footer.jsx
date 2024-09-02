@@ -11,8 +11,8 @@ export default function Footer() {
   
   
   return <>
-  <div className='bg-slate-100  p-4 container px-7'>
-    <div className="container text-center md:text-start px-5 py-5">
+  <div className='bg-slate-100  absolute left-[-10px] p-4 container px-7'>
+    <div className="container  text-center md:text-start px-5 py-5">
       <h1 className='capitalize'>get the fresh cart app</h1>
       <h2 className='pt-1'>we will send you a link, open it on your phone to download the app</h2>
     </div>
@@ -21,19 +21,21 @@ export default function Footer() {
       <button className='ms-4 p-2 px-9 text-white shadow-lg   hover:bg-green-600 transition-colors rounded-lg  bg-green-500 '>Share App Link</button>
     </div>
     <div className='md:flex justify-between items-center md:px-7 pt-3 md:pt-0'>
-      <div className='flex md:gap-3 pt-5 '>
-        <h2 >payment partners </h2>
-        <div className='flex md:gap-3 gap-1'>
+      <div className='md:flex  md:gap-3 pt-5 '>
+        <h2 className='text-center'>payment partners </h2>
+        <div className='flex justify-center py-2 md:gap-3  gap-1 '>
             <img src={amazonLogo} className='w-14  object-contain pb-3' alt="" />
             <img src={american} className='w-14  object-contain pb-3' alt="" />
             <img src={paypal} className='w-14  object-contain pb-3' alt="" />
             <img src={masterCard}  className='w-14  object-contain pb-3' alt="" />
         </div>
       </div>
-      <div className='flex items-center gap-3 md:pt-0 pt-3' >
-        <h2 className='capitalize'>get deliveries with freshCart</h2>
-        <img src={googlePlay}  className='w-20 cursor-pointer  object-contain ' alt="" />
-        <img src={app2}  className='w-20 cursor-pointer  object-contain ' alt="" />
+      <div className='md:flex items-center gap-3 md:pt-0 pt-3' >
+        <h2 className='capitalize text-center'>get deliveries with freshCart</h2>
+          <div className='flex justify-center py-3 gap-3'>
+          <img src={googlePlay}  className='w-20 cursor-pointer  object-contain' alt="" />
+          <img src={app2}  className='w-20 cursor-pointer  object-contain ' alt="" />
+          </div>
 
       </div>
     </div>

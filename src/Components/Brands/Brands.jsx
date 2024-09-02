@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import style from "./Brands.module.css"
 import axios from 'axios'
-
+import Footer from "../Footer/Footer"
 export default function Brands() {
   const [allBrands, setallBrands] = useState([])
 
@@ -12,12 +12,13 @@ export default function Brands() {
 
   useEffect(()=>{
     getAllBrands()
+    document.title = "Brands"
   },[])
   return <>
     {allBrands.length > 0 ?    <div className="row">
         {allBrands?.map((brand) => (
           <div key={brand._id} className="w-full md:w-1/3 lg:w-1/4 xl:w-1/6 app">
-            <div className="product p-3 my-2">
+            <div className="product drop-shadow-md  transition-all hover:drop-shadow-2xl p-3 my-2">
             
                 <img src={brand?.image} className="w-full " alt="" />
               
@@ -28,6 +29,6 @@ export default function Brands() {
           </div>
         ))}
       </div> : <i className='loader md:mt-72 mt-60'></i>}
-  
+        <Footer />
   </>
 }

@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { UserContext } from "../../Context/UserContext";
-
+import Footer from "../Footer/Footer"
 
 
 
@@ -72,7 +72,7 @@ export default function Register() {
           {ApiError}
         </div>
       ) : null}
-      <div className="my-5">
+      <div className="my-5 ">
         <h2 className="font-bold text-2xl text-center text-emerald-600 mb-5">
           Register Now
         </h2>
@@ -223,6 +223,7 @@ export default function Register() {
    
         </form>
       </div>
+      <Footer />
     </>
   );
 }

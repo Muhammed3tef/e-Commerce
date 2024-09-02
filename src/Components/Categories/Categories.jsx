@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./Categories.module.css";
 import axios, { all } from "axios";
-
+import Footer from "../Footer/Footer"
 export default function Categories() {
   const [allCategories, setallCategories] = useState([]);
 
@@ -15,6 +15,7 @@ export default function Categories() {
 
   useEffect(() => {
     getAllCategories();
+    document.title = "Categories"
   }, []);
 
   return (
@@ -24,9 +25,9 @@ export default function Categories() {
           {allCategories?.map((category) => (
             <div
               key={category._id}
-              className="w-full md:w-1/3 lg:w-1/4 xl:w-1/6 app"
+              className="w-full md:w-1/3 lg:w-1/4 xl:w-1/6 "
             >
-              <div className="product p-3 my-2 ">
+              <div className="product drop-shadow-md  transition-all hover:drop-shadow-2xl p-3 my-2 ">
                 
                   <img
                     src={category?.image}
@@ -44,6 +45,7 @@ export default function Categories() {
       ) : (
         <i className="loader md:mt-72 mt-60"></i>
       )}
+      <Footer />
     </>
   );
 }

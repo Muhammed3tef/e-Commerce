@@ -19,6 +19,7 @@ export default function rePassowrd() {
     setisLoading(true);
     axios.post(`https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords`, values)
     .then((res) => {
+      
       setisLoading(false)
       // setApiError(res.data.message)
       toast.success(res.data.message)
@@ -95,8 +96,8 @@ export default function rePassowrd() {
               )}
             </button>
             {/* <span>
-              <Link to={"/forgetpassword"} className="text-blue-600 hover:underline hover:text-blue-600">
-                Forget Password ?
+              <Link to={"/resetcode"} className="text-blue-600 hover:underline hover:text-blue-600">
+              Verify Reset Code..
               </Link>{" "}
             </span> */}
          
